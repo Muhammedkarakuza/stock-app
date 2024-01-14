@@ -10,6 +10,7 @@ import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import { Formik, Form } from "formik";
 import { object, string, number, date, InferType } from "yup";
+import { login } from "../service/authanticationApiCall";
 
 const Login = () => {
   const loginSchema = object({
@@ -62,16 +63,14 @@ const Login = () => {
             validationSchema={loginSchema}
             onSubmit={(values, actions) => {
               actions.resetForm();
-              actions.setSubmiting(false);
+              actions.setSubmitting(false);
               //+ Login(Post) request
+              login(values);
             }}
           >
             {({ handleChange, values, touched, errors, handleBlur }) => (
               <Form>
-                <Box
-                  component="form"
-                  sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-                >
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
                     label="Email"
                     name="email"
