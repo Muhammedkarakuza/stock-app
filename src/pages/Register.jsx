@@ -1,17 +1,17 @@
-import Container from "@mui/material/Container"
-import Typography from "@mui/material/Typography"
-import Avatar from "@mui/material/Avatar"
-import LockIcon from "@mui/icons-material/Lock"
-import image from "../assets/result.svg"
-import Grid from "@mui/material/Grid"
-import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
-import { Link, useNavigate } from "react-router-dom"
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Avatar from "@mui/material/Avatar";
+import LockIcon from "@mui/icons-material/Lock";
+import image from "../assets/result.svg";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import { Link, useNavigate } from "react-router-dom";
 
-import TextField from "@mui/material/TextField"
+import TextField from "@mui/material/TextField";
 
 const Register = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <Container maxWidth="lg">
@@ -26,7 +26,7 @@ const Register = () => {
         }}
       >
         <Grid item xs={12}>
-          <Typography variant="h3" color="primary" align="center">
+          <Typography variant="h3" color="black" align="center">
             STOCK APP
           </Typography>
         </Grid>
@@ -34,7 +34,7 @@ const Register = () => {
         <Grid item xs={12} sm={10} md={6}>
           <Avatar
             sx={{
-              backgroundColor: "secondary.light",
+              backgroundColor: "black",
               m: "auto",
               width: 40,
               height: 40,
@@ -42,13 +42,8 @@ const Register = () => {
           >
             <LockIcon size="30" />
           </Avatar>
-          <Typography
-            variant="h4"
-            align="center"
-            mb={2}
-            color="secondary.light"
-          >
-            Register
+          <Typography variant="h4" align="center" mb={2} color="black">
+            REGISTER
           </Typography>
 
           <Box
@@ -107,7 +102,7 @@ const Register = () => {
         </Grid>
       </Grid>
     </Container>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

@@ -12,7 +12,15 @@ function App() {
       },
     },
   });
-  return <div className="App"></div>;
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <AppRouter />
+        </Provider>
+      </ThemeProvider>
+    </>
+  );
 }
 
 export default App;
