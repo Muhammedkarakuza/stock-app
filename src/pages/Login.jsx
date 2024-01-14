@@ -10,9 +10,10 @@ import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import { Formik, Form } from "formik";
 import { object, string, number, date, InferType } from "yup";
-import { login } from "../service/authanticationApiCall";
+import useAuthCall from "../service/useAuthCall";
 
 const Login = () => {
+  const { login } = useAuthCall();
   const loginSchema = object({
     email: string()
       .email("Geçerli bir email girilmelidir")
