@@ -20,7 +20,7 @@ function Dashboard() {
             STOCK APP
           </Typography>
           {currentUser && (
-            <Button color="inherit" onClick={() => logout()}>
+            <Button color="inherit" onClick={logout}>
               Logout
             </Button>
           )}
