@@ -26,7 +26,7 @@ const useAuthCall = () => {
       //   userInfo
       // );
       //! Second Method
-      const { data } = await axiosPublic("/auth/login", userInfo);
+      const { data } = await axiosPublic.post("/auth/login", userInfo);
       dispatch(loginSuccess(data));
       toastSuccessNotify("Login islemi basarili.");
       navigate("/stock");
@@ -45,7 +45,7 @@ const useAuthCall = () => {
       //   userInfo
       // );
       //! Second Method
-      const { data } = await axiosPublic("/users", userInfo);
+      const { data } = await axiosPublic.post("/users/", userInfo);
       dispatch(registerSuccess(data));
       navigate("/stock");
     } catch (error) {
