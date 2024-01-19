@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
 import useAuthCall from "../service/useAuthCall";
-import MenuListItems from "../components/ManuListItems";
+import MenuListItems from "../components/MenuListItems";
 import { Outlet } from "react-router-dom";
 
 const drawerWidth = 190;
