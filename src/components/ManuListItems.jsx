@@ -55,9 +55,19 @@ const MenuListItems = () => {
             key={index}
             disablePadding
             onClick={() => navigate(item.url)}
+            //! Nested styling (icons and title)
+            sx={{
+              color: "#F3B928",
+              "&:hover": { color: "red" },
+              "&:hover .MuiListItemIcon-root": { color: "red" },
+            }}
           >
             <ListItemButton>
-              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemIcon
+                sx={{ color: "#F3B928", "&:hover": { color: "red" } }}
+              >
+                {item.icon}
+              </ListItemIcon>
               <ListItemText primary={item.title} />
             </ListItemButton>
           </ListItem>

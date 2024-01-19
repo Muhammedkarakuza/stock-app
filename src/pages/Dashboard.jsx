@@ -61,7 +61,7 @@ function Dashboard(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        <Toolbar sx={{ backgroundColor: "black" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -71,13 +71,23 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, color: "#F3B928" }}
+          >
             Stock APP
           </Typography>
           {user && (
             <Button
+              sx={{
+                backgroundColor: "red",
+                borderRadius: "10px",
+                "&:hover": { backgroundColor: "crimson" },
+                "&:active": { backgroundColor: "e4605e" },
+              }}
               variant="contained"
-              color="primary"
               onClick={() => logout()}
             >
               Logout
