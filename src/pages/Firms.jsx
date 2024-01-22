@@ -4,10 +4,12 @@ import Button from "@mui/material/Button";
 import useStockCall from "../service/useStockCall";
 
 const Firms = () => {
-  const { getFirms } = useStockCall();
+  // const { getFirms, getSales } = useStockCall();
+  const { getStocks } = useStockCall();
   useEffect(() => {
-    getFirms();
-  }, [getFirms]);
+    getStocks("firms");
+    getStocks("sales");
+  }, []);
 
   return (
     <div>
