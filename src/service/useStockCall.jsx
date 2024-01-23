@@ -4,7 +4,7 @@ import {
   fetchFail,
   getStocksSuccess,
 } from "../features/stockSlice";
-import { toastErrorNotify } from "../helper/ToastNotify";
+import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 import { useDispatch } from "react-redux";
 
 const useStockCall = () => {
@@ -42,7 +42,19 @@ const useStockCall = () => {
       toastErrorNotify(`${url} bilgileri getirilemedi`);
     }
   };
-  return { getStocks };
+
+  const deleteStock = async (url = "firms", id) => {
+    dispatch(fetchStart());
+    try {
+      await axiosWithToken.delete(`/${url}/${id}`);
+      toastSuccessNotify(`${url} bilgisi silinmiştir`);
+      getStocks(url);
+    } catch (error) {
+      dispatch(fetchFail());
+      toastErrorNotify(`${url} bilgisi silinemedi`);
+    }
+  };
+  return { getStocks, deleteStock };
 };
 
 export default useStockCall;
