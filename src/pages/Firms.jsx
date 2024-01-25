@@ -11,23 +11,41 @@ const Firms = () => {
   // const { getFirms, getSales } = useStockCall();
   const { getStocks } = useStockCall();
   const { firms } = useSelector((state) => state.stock);
-
+  const [info, setInfo] = useState({
+    name: "",
+    phone: "",
+    address: "",
+    image: "",
+  });
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+
+  const handleClose = () => {
+    setOpen(false);
+    setInfo({ name: "", phone: "", address: "", image: "" });
+  };
 
   useEffect(() => {
     getStocks("firms");
     getStocks("sales");
   }, []);
+
   console.log(firms);
   return (
     <div>
       <Typography variant="h4" color="error" mb={3}>
         Firms
       </Typography>
-      <Button variant="contained">New Firm</Button>
-      <FirmsModal />
+      <Button variant="contained" onClick={handleOpen}>
+        New Firm
+      </Button>
+      <FirmsModal
+        open={open}
+        handleClose={handleClose}
+        info={info}
+        setInfo={setInfo}
+      />
 
       <Grid container gap={3} mt={4} justifyContent="center">
         {firms?.map((firm) => (
