@@ -10,10 +10,16 @@ export default function FirmsModal({ open, handleClose, info, setInfo }) {
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
-  const { postStock } = useStockCall();
+  const { postStock, putStock } = useStockCall();
+  console.log(info);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    postStock("firms", info);
+    if (info._id) {
+      postStock("firms", info);
+    } else {
+      putStock("firms", info);
+    }
     handleClose();
   };
   console.log(info);
