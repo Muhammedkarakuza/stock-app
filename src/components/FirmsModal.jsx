@@ -16,9 +16,9 @@ export default function FirmsModal({ open, handleClose, info, setInfo }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (info._id) {
-      postStock("firms", info);
-    } else {
       putStock("firms", info);
+    } else {
+      postStock("firms", info);
     }
     handleClose();
   };
@@ -79,7 +79,7 @@ export default function FirmsModal({ open, handleClose, info, setInfo }) {
               required
             />
             <Button type="submit" variant="contained" size="large">
-              Submit
+              {info._id ? "Edit" : "Save"}
             </Button>
           </Box>
         </Box>

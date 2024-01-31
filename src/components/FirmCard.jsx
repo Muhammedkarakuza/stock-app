@@ -34,17 +34,18 @@ export default function FirmCard({ firm, handleOpen, setInfo }) {
         sx={{ objectFit: "contain" }}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" align="left">
           {name}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" align="left">
           {address}
         </Typography>
         <Typography
           variant="body2"
-          color="text.secondary"
+          color="black"
           fontWeight={200}
           mt={2}
+          align="left"
         >
           {phone}
         </Typography>
