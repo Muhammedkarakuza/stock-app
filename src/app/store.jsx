@@ -11,8 +11,8 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-// import storage from "redux-persist/lib/storage/session"; //!if you want to use session storage you can active this import
+// import storage from "redux-persist/lib/storage";//! local storage kullanmak istiyorsan bu importu aktif edebilirsin
+import storage from "redux-persist/lib/storage/session";
 
 const persistConfig = {
   key: "root",
