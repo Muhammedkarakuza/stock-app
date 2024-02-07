@@ -14,8 +14,12 @@ export const NoDataMsg = () => {
   return <Alert severity="warning">Gösterilecek veri bulunamadı. </Alert>;
 };
 
-export const CardSkeleton = () => {
-  return <div>Card Skeleton</div>;
+export const CardSkeleton = ({ children }) => {
+  return (
+    <Stack sx={{ justifyContent: "center", alignItems: "center" }} my={3}>
+      <Skeleton variant="rectangular">{children}</Skeleton>
+    </Stack>
+  );
 };
 
 const TableSkeleton = () => {

@@ -11,7 +11,6 @@ import { buttonStyle } from "../styles/globalStyles";
 import useStockCall from "../service/useStockCall";
 
 export default function FirmCard({ firm, handleOpen, setInfo }) {
-  const { address, image, name, phone, _id } = firm;
   const { deleteStock } = useStockCall();
   return (
     <Card
@@ -30,15 +29,15 @@ export default function FirmCard({ firm, handleOpen, setInfo }) {
         component="img"
         alt="green iguana"
         height="140"
-        image={image}
+        image={firm?.image}
         sx={{ objectFit: "contain" }}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div" align="left">
-          {name}
+          {firm?.name}
         </Typography>
         <Typography variant="body2" color="text.secondary" align="left">
-          {address}
+          {firm?.address}
         </Typography>
         <Typography
           variant="body2"
@@ -47,7 +46,7 @@ export default function FirmCard({ firm, handleOpen, setInfo }) {
           mt={2}
           align="left"
         >
-          {phone}
+          {firm?.phone}
         </Typography>
       </CardContent>
       <CardActions>
@@ -60,7 +59,7 @@ export default function FirmCard({ firm, handleOpen, setInfo }) {
         />
         <DeleteOutlineIcon
           sx={buttonStyle}
-          onClick={() => deleteStock("firms", _id)}
+          onClick={() => deleteStock("firms", firm?._id)}
         />
       </CardActions>
     </Card>

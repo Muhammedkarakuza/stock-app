@@ -6,7 +6,11 @@ import { useSelector } from "react-redux";
 import { Grid } from "@mui/material";
 import FirmCard from "../components/FirmCard";
 import FirmsModal from "../components/FirmsModal";
-import TableSkeleton, { ErrorMsg, NoDataMsg } from "../components/DataFetchMsg";
+import TableSkeleton, {
+  CardSkeleton,
+  ErrorMsg,
+  NoDataMsg,
+} from "../components/DataFetchMsg";
 import ProductTable from "../components/ProductTable";
 
 const Firms = () => {
@@ -51,7 +55,11 @@ const Firms = () => {
 
       {error && <ErrorMsg />}
 
-      {loading && <TableSkeleton />}
+      {loading && (
+        <CardSkeleton>
+          <FirmCard />
+        </CardSkeleton>
+      )}
 
       {!error && !loading && !firms.length && <NoDataMsg />}
 
