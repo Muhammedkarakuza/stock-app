@@ -5,10 +5,11 @@ import useStockCall from "../service/useStockCall";
 import { useSelector } from "react-redux";
 import ProductModal from "../components/ProductModal";
 import ProductTable from "../components/ProductTable";
+import TableSkeleton, { ErrorMsg, NoDataMsg } from "../components/DataFetchMsg";
 
 const Products = () => {
   const { getStocks } = useStockCall();
-  const { products } = useSelector((state) => state.stock);
+  const { products, error, loading } = useSelector((state) => state.stock);
   const initialState = {
     categoryId: "",
     brandId: "",
@@ -45,7 +46,10 @@ const Products = () => {
         info={info}
         setInfo={setInfo}
       />
-      <ProductTable />
+      {error && <ErrorMsg />}
+      {loading && <TableSkeleton />}
+      {!error && !loading && !products.length && <NoDataMsg />}
+      {!loading && !error && products.length > 0 && <ProductTable />}
     </div>
   );
 };
